@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { BaseSyntheticEvent, useEffect, useState } from 'react';
 import './App.css';
 
+import { fetchImage } from './axios/fetch-image';
+
+import SearchBarComponent from './components/search-bar/search-bar.component';
+
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const searchHandler = (searchTerm: string) => {
+    setSearchTerm(searchTerm)
+  }
+
+  useEffect(() => {
+    console.log('searchTerm', searchTerm)
+    const a = fetchImage(searchTerm)
+  }, [searchTerm]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBarComponent onSearchHandler={searchHandler} />
     </div>
   );
 }
