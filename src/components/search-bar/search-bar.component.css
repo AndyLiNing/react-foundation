@@ -1,0 +1,17 @@
+
+.search-box {
+    display: flex;
+    border: 1px solid lightgray;
+    padding: 2rem;
+    margin: 2rem;
+}
+
+form {
+    height: 2rem;
+    width: 100%;
+}
+input {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}

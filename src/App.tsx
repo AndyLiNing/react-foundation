@@ -1,25 +1,22 @@
-import React, { BaseSyntheticEvent, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import { fetchImage } from './axios/fetch-image';
+import ImageListComponent, { ImageTypes } from './components/image-list/image-list.component';
 
 import SearchBarComponent from './components/search-bar/search-bar.component';
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const searchHandler = (searchTerm: string) => {
-    setSearchTerm(searchTerm)
+  const [images, setImages] = useState<ImageTypes[]>([])
+  const searchHandler = async (searchTerm: string) => {
+    const results = await fetchImage(searchTerm);
+    setImages(results);
   }
-
-  useEffect(() => {
-    console.log('searchTerm', searchTerm)
-    const a = fetchImage(searchTerm)
-  }, [searchTerm]);
-
 
   return (
     <div className="App">
       <SearchBarComponent onSearchHandler={searchHandler} />
+      <ImageListComponent images={images}/>
     </div>
   );
 }
