@@ -9,6 +9,7 @@ const SearchBarComponent: FC<SearchProps>= ( { onSearchHandler }) => {
         e.preventDefault();
         onSearchHandler(searchTerm);
         setSearchTerm('')
+        inputRef.current?.blur();
     }
     return <div className="search-box">
         <form onSubmit={onSubmit}>
