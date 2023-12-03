@@ -12,7 +12,6 @@ export const fetchImage = async (searchTerm: string) => {
         }
     });
     return response.data.results
-
 }
 
 type ResponseType = {

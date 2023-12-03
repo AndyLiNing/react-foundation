@@ -11,13 +11,12 @@ const SearchBarComponent: FC<SearchProps>= ( { onSearchHandler }) => {
         setSearchTerm('')
         inputRef.current?.blur();
     }
+
     return <div className="search-box">
         <form onSubmit={onSubmit}>
             <label> Search </label>
             <input ref={inputRef} value={searchTerm} onChange={(e: BaseSyntheticEvent) => { setSearchTerm(e.target.value)}}/>
         </form>
-
-        {/*<button onClick={ onClick }> Search </button>*/}
     </div>
 }
 

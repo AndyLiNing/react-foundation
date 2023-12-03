@@ -1,22 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
+import BookManagerComponent from './book-manager/book-manager.component';
 
-import { fetchImage } from './axios/fetch-image';
-import ImageListComponent, { ImageTypes } from './components/image-list/image-list.component';
-
-import SearchBarComponent from './components/search-bar/search-bar.component';
+// import ImageSearchComponent from './image-search/components/image-search.component';
 
 function App() {
-  const [images, setImages] = useState<ImageTypes[]>([])
-  const searchHandler = async (searchTerm: string) => {
-    const results = await fetchImage(searchTerm);
-    setImages(results);
-  }
-
   return (
     <div className="App">
-      <SearchBarComponent onSearchHandler={searchHandler} />
-      <ImageListComponent images={images}/>
+        {/*<ImageSearchComponent/>*/}
+      <BookManagerComponent/>
     </div>
   );
 }
