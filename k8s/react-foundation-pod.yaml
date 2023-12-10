@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: react-foundation-app
+  labels:
+    component: web
+spec:
+  containers:
+    - name: react-foundation-app
+      image: andyningli/react-foundation:fixed
+      ports:
+        - containerPort: 3000
+

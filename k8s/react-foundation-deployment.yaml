@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-foundation-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      name: react-foundation-app
+      labels:
+        component: web
+    containers:
+      - name: react-foundation-app
+        image: andyningli/react-foundation:fixed
+        ports:
+          - containerPort: 3000
+
