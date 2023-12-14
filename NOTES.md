@@ -22,6 +22,9 @@ docker images
 docker image tag react-foundation(SOURCE_IMAGE[:TAG]) andyningli/react-foundation(TARGET_IMAGE[:TAG])
 ```
 
+###
+
+
 # Main takeaways 
 ```angular2html
 - K8s is a system to deploy containerized apps

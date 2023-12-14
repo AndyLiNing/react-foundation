@@ -7,14 +7,16 @@ spec:
   selector:
     matchLabels:
       component: web
+  # The template part of the deployment yaml file is a Pod configs
   template:
     metadata:
       name: react-foundation-app
       labels:
         component: web
-    containers:
-      - name: react-foundation-app
-        image: andyningli/react-foundation:fixed
-        ports:
-          - containerPort: 3000
+    spec:
+      containers:
+        - name: react-foundation-app
+          image: andyningli/react-foundation:fixed
+          ports:
+            - containerPort: 3000
 
